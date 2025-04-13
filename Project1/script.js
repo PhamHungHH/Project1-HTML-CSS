@@ -167,10 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             if (isValid) {
-                // --- !!! ---
-                // Placeholder for actual submission (e.g., using fetch to send data to a backend)
-                // In a real app, you would POST this data to a server/service.
-                // For this example, we just simulate success.
+               
                 // --- !!! ---
                 console.log('Form data:', { name, email, message });
 
@@ -220,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
                          console.error("ERROR: Could not find iframe with id 'project2-video-iframe'"); // <-- ADD ERROR LOG
                      }
                 } else {
-                    // Initialize slider for other modals (like Project 1)
+                    
                     initializeSlider(modal);
                 }
             } else {
