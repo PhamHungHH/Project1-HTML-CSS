@@ -1,0 +1,539 @@
+/* ======================== Basic Setup & Variables ======================== */
+:root {
+    --primary-color-light: #007bff;
+    --secondary-color-light: #6c757d;
+    --background-light: #ffffff;
+    --text-color-light: #333333;
+    --card-bg-light: #f8f9fa;
+    --border-color-light: #dee2e6;
+
+    --primary-color-dark: #4dabf7; /* Lighter blue for dark mode */
+    --secondary-color-dark: #adb5bd;
+    --background-dark: #1a1a1a; /* Dark background */
+    --text-color-dark: #e0e0e0; /* Light text */
+    --card-bg-dark: #2c2c2c; /* Darker card */
+    --border-color-dark: #444444;
+
+    --font-family: 'Arial', sans-serif; /* Choose a font */
+    --transition-speed: 0.3s;
+
+    /* Default to light mode variables */
+    --primary-color: var(--primary-color-light);
+    --secondary-color: var(--secondary-color-light);
+    --background: var(--background-light);
+    --text-color: var(--text-color-light);
+    --card-bg: var(--card-bg-light);
+    --border-color: var(--border-color-light);
+}
+
+body.dark-mode {
+    /* Switch to dark mode variables */
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+    --background: var(--background-dark);
+    --text-color: var(--text-color-dark);
+    --card-bg: var(--card-bg-dark);
+    --border-color: var(--border-color-dark);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color); /* Use primary color for headings */
+}
+
+section {
+    padding: 60px 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* ======================== Header / Navigation ======================== */
+#header {
+    position: sticky; /* Sticky header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+/* Add a subtle shadow in dark mode */
+body.dark-mode #header {
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+#header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color); /* Ensure logo color contrasts */
+}
+
+.navbar .nav-menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .nav-link {
+    padding: 0 1rem;
+    color: var(--text-color);
+    transition: color var(--transition-speed) ease;
+}
+
+.navbar .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-right: 1rem; /* Space before hamburger */
+    transition: color var(--transition-speed) ease;
+}
+.theme-btn:hover {
+    color: var(--primary-color);
+}
+
+
+/* Hamburger Menu - Hidden on desktop */
+.hamburger {
+    display: none; /* Hide by default on larger screens */
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-color);
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+
+/* ============================ Hero Section =========================== */
+.hero {
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Example Background: Gradient - replace with your preference */
+    background: linear-gradient(45deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0));
+    position: relative; /* Needed for potential parallax */
+}
+body.dark-mode .hero {
+    background: linear-gradient(45deg, rgba(77, 171, 247, 0.1), rgba(77, 171, 247, 0));
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+
+.animated-text {
+    color: var(--primary-color);
+    font-weight: bold;
+    /* Placeholder for animation */
+    /* Example: animation: typingEffect 4s steps(40, end), blink-caret .75s step-end infinite; */
+}
+
+/* Example keyframes for simple text animation */
+@keyframes colorChange {
+    0%   {color: var(--primary-color);}
+    50%  {color: var(--secondary-color);}
+    100% {color: var(--primary-color);}
+}
+.animated-text { /* Apply a simple color change animation */
+     animation: colorChange 5s infinite;
+}
+
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--background-light); /* Keep button text light */
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color var(--transition-speed) ease;
+    border: none; /* Ensure buttons don't have borders unless desired */
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+body.dark-mode .cta-button:hover {
+     background-color: #74c0fc; /* Lighter shade on hover for dark mode */
+}
+
+/* Style for secondary buttons if needed */
+.cta-button.secondary {
+    background-color: var(--secondary-color);
+}
+.cta-button.secondary:hover {
+    background-color: #5a6268;
+}
+body.dark-mode .cta-button.secondary:hover {
+     background-color: #ced4da;
+}
+
+
+/* ========================== Projects Section ========================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+body.dark-mode .project-card {
+     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark */
+}
+
+
+.project-card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+body.dark-mode .project-card:hover {
+     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.project-card img {
+    margin-bottom: 1rem;
+    border-radius: 5px; /* Slightly round image corners */
+    border: 1px solid var(--border-color);
+}
+
+.project-card h3 {
+    margin-bottom: 0.5rem;
+}
+.project-card p {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.view-details-btn {
+    background-color: var(--primary-color);
+    color: var(--background-light); /* Light text */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+}
+.view-details-btn:hover {
+    background-color: #0056b3; /* Darker on hover */
+}
+body.dark-mode .view-details-btn:hover {
+     background-color: #74c0fc; /* Lighter shade on hover for dark mode */
+}
+
+/* ========================== Contact Section ========================== */
+#contact-form {
+    max-width: 600px;
+    margin: auto;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--background); /* Match form field bg to body bg */
+    color: var(--text-color); /* Match form field text color */
+    transition: border-color var(--transition-speed) ease;
+}
+body.dark-mode .form-group input[type="text"],
+body.dark-mode .form-group input[type="email"],
+body.dark-mode .form-group textarea {
+    background-color: var(--card-bg); /* Use card bg for fields in dark mode? or slightly different */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-group .error-message {
+    color: #dc3545; /* Red for errors */
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+}
+
+#contact-form button[type="submit"] {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color var(--transition-speed) ease;
+}
+
+#contact-form button[type="submit"]:hover {
+     background-color: #0056b3;
+}
+body.dark-mode #contact-form button[type="submit"]:hover {
+    background-color: #74c0fc;
+}
+
+#form-status {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+#form-status.success {
+    color: #28a745; /* Green for success */
+}
+#form-status.error {
+    color: #dc3545; /* Red for error */
+}
+
+
+/* ============================ Footer =============================== */
+footer {
+    background-color: var(--card-bg); /* Use card background for footer */
+    color: var(--secondary-color); /* Use secondary text color */
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 40px; /* Add some space above the footer */
+    border-top: 1px solid var(--border-color);
+}
+
+/* ========================== Project Modals ========================= */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.modal-content {
+    background-color: var(--background);
+    color: var(--text-color);
+    margin: auto;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px; /* Max width */
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease; /* Simple fade-in */
+}
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+.close-modal {
+    color: var(--secondary-color);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* ======================== Responsive Design ======================== */
+@media (max-width: 768px) {
+    #header {
+        padding: 1rem; /* Adjust padding */
+    }
+
+    .navbar .nav-menu {
+        position: absolute;
+        left: -100%; /* Hide off-screen */
+        top: 70px; /* Position below header */
+        flex-direction: column;
+        background-color: var(--background);
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease; /* Smooth transition for mobile menu */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        border-top: 1px solid var(--border-color);
+    }
+    body.dark-mode .navbar .nav-menu {
+         box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    }
+
+
+    .navbar .nav-menu.active {
+        left: 0; /* Bring menu onto screen */
+    }
+
+    .navbar li {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+     .navbar li:last-child {
+        border-bottom: none;
+    }
+
+
+    .hamburger {
+        display: block; /* Show hamburger on smaller screens */
+    }
+    /* Hamburger animation (cross) when active */
+     .hamburger.active .bar:nth-child(2) {
+         opacity: 0;
+     }
+     .hamburger.active .bar:nth-child(1) {
+         transform: translateY(8px) rotate(45deg);
+     }
+     .hamburger.active .bar:nth-child(3) {
+         transform: translateY(-8px) rotate(-45deg);
+     }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* Stack projects vertically */
+    }
+
+    .modal-content {
+        width: 90%; /* Wider modal on smaller screens */
+    }
+}
+/* ================= Styles for Video Embed in Modal ================== */
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000; /* Optional: Black background while loading */
+    margin: 1rem auto 1.5rem; /* Center and add spacing */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-project-card {
+    position: relative; /* Needed for positioning the overlay */
+  }
+  
+  .video-project-card::after {
+    content: '\f04b'; /* Font Awesome Play Icon Unicode */
+    font-family: 'Font Awesome 6 Free'; /* Make sure Font Awesome is linked */
+    font-weight: 900; /* Use Solid style */
+    position: absolute;
+    top: 40%; /* Adjust vertical position */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem; /* Adjust icon size */
+    color: rgba(255, 255, 255, 0.8); /* White with some transparency */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow for visibility */
+    pointer-events: none; /* Prevent icon from interfering with clicks */
+    transition: opacity 0.3s ease;
+    opacity: 0.8;
+  }
+  

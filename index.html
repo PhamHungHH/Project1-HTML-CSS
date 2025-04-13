@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pham Hung - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ======================== Header / Navigation ======================== -->
+    <header id="header">
+        <a href="#home" class="logo">Pham Hung</a>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-controls">
+             <button id="theme-toggle" class="theme-btn">
+                <i class="fas fa-sun"></i> <!-- Icon changes with theme -->
+            </button>
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================ Hero Section =========================== -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Pham Hung</h1>
+            <p>A <span class="animated-text">Creative Developer</span> passionate about building beautiful web experiences.</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <!-- ============================ About Section ========================== -->
+    <section id="about">
+        <div class="container">
+             <h2>About Me</h2>
+             <p>Hi, my name is Hung and im a 2nd year student at HAAGA-HELIA UNI </p>
+
+             <h3> My Skills</h3>
+             <ul>
+                 <li>HTML5, CSS, JavaScript </li>
+                 <li>React, Vue, or Angular</li>
+                 <li>Node.js, Python, SQL or PHP</li>
+                 <li>Git, GitHub, Webpack, Figma, Wordpress</li>
+             </ul>
+        </div>
+    </section>
+
+    <!-- ========================== Projects Section ========================= -->
+    <section id="projects">
+        <div class="container">
+             <h2>My Projects</h2>
+             <div class="projects-grid">
+                 <!-- Project Card 1 -->
+                 <div class="project-card">
+                     <img src="Screenshot 2025-04-13 170835.png" alt="Project 1 Screenshot">
+                     <h3>Project Title 1</h3>
+                     <p>A Simple Wordpress project home page.</p>
+                     <button class="view-details-btn" data-project-id="project1">View Details</button>
+                 </div>
+                   <!-- Project Card 2 -->
+                 <div class="project-card">
+                        <img src="https://img.youtube.com/vi/_waPvOwL9Z8/mqdefault.jpg" alt="Project 2 Video Thumbnail">  <!-- Use the thumbnail URL -->
+                        <h3>Project Title 2</h3>
+                        <p>A video demonstration of this project.</p> <!-- Updated description -->
+                     <button class="view-details-btn" data-project-id="project2">View Details</button>
+                     </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- ========================== Contact Section ========================== -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="email-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+                <div id="form-status"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================ Footer =============================== -->
+    <footer>
+        <div class="container">
+             <p>© <span id="current-year"></span> Pham Hung. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ======================== Project Modals (Hidden) ===================== -->
+
+    <!-- Modal for Project 1 -->
+    <div id="project1-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <h2>Wordpress Project</h2>
+            <!-- Main Project Image (Optional, could be first slider image) -->
+            <!-- <img src="Screenshot 2025-04-13 170835.png" alt="Project 1 Main View" style="width:100%; max-width: 400px; margin-bottom: 1rem;"> -->
+            <p>Simple Wordpress homepage. View screenshots below:</p>
+
+            <!-- Image Slider Container - Correction: Moved inside modal-content -->
+            <div class="project-slider-container">
+                <div class="slider-images">
+                    <!-- Add up to 5 images here -->
+                    <!-- Note: First image can be the same as main image or a different one -->
+                    <img src="Screenshot 2025-04-13 170835.png" alt="Project 1 Screenshot 1" class="slider-image">
+                    <img src="pic2.png" alt="Project 1 Screenshot 2" class="slider-image">
+                    <img src="pic3.png" alt="Project 1 Screenshot 3" class="slider-image">
+                    <img src="pic4.png" alt="Project 1 Screenshot 4" class="slider-image">
+                    <img src="Screenshot 2025-04-13 172230.png" alt="Project 1 Screenshot 5" class="slider-image">
+                    <img src="pic5.png" alt="Project 1 Screenshot 6" class="slider-image"> <!-- Adjusted count as you had 6 -->
+                </div>
+                <button class="slider-btn slider-prev"><</button>
+                <button class="slider-btn slider-next">></button>
+                <div class="slider-dots">
+                    <!-- Dots will be added dynamically by JS -->
+                </div>
+            </div>
+             <!-- Links -->
+             <!-- <a href="#" target="_blank" class="cta-button">Live Demo</a> -->
+             <!-- <a href="#" target="_blank" class="cta-button secondary">GitHub Repo</a> -->
+        </div>
+    </div>
+
+    <!-- Modal for Project 2 (Video Example) -->
+    <div id="project2-modal" class="modal">
+        <div class="modal-content">
+             <span class="close-modal">×</span>
+             <h2>Project Title 2 (Video Demo)</h2>
+
+              <!-- Inside id="project2-modal" -->
+ <iframe
+ id="project2-video-iframe"
+ width="560"
+ height="315"
+ src=""
+ data-video-src="https://www.youtube.com/embed/_waPvOwL9Z8"  
+ title="Project 2 Video Player"
+ frameborder="0"
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+ allowfullscreen>
+</iframe>
+             </div>
+        
+        </div>
+     </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
